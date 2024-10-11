@@ -28,13 +28,13 @@ GOOGLE_API_KEY=
 - Search for the Google API that you need (e.g., Google Drive API, Google People API, Google Maps API, etc.), and click Enable.
 
 3. Obtain GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET:
-  a. Configure OAuth Consent Screen:
+a. Configure OAuth Consent Screen:
 	- Go to APIs & Services > OAuth consent screen.
 	- Select whether your app is for Internal (G Suite users) or External (any Google account).
 	- Fill in the required details like the app name, user support email, etc.
 	- Under "Scopes for Google APIs," you can add any required scopes (like email, profile, etc.).
 	- Add your domain (if any) and save.
-  b. Create OAuth 2.0 Credentials:
+b. Create OAuth 2.0 Credentials:
 	- Go to APIs & Services > Credentials.
 	- Click on Create Credentials and select OAuth 2.0 Client ID.
 	- Choose Web Application and fill in the required information, such as:
