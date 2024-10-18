@@ -17,7 +17,6 @@ Connect Google Drive in Laravel and upload images directly through Google Drive.
 1. GOOGLE_CLIENT_ID=
 2. GOOGLE_CLIENT_SECRET=
 3. GOOGLE_REDIRECT_URI=
-4. GOOGLE_API_KEY=
 
 A) Create a Project in Google Cloud Console:
 - Go to the Google Cloud Console.
@@ -27,7 +26,7 @@ A) Create a Project in Google Cloud Console:
 
 B) Enable APIs and Services:
 - In the Google Cloud Console, navigate to APIs & Services > Library.
-- Search for the Google API that you need (e.g., Google Drive API, Google People API, Google Maps API, etc.), and click Enable.
+- Search for Google Drive API and click Enable.
 
 C) Obtain GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET:
 
@@ -41,20 +40,15 @@ a. Configure OAuth Consent Screen:
 b. Create OAuth 2.0 Credentials:
 	- Go to APIs & Services > Credentials.
 	- Click on Create Credentials and select OAuth 2.0 Client ID.
-	- Choose Web Application and fill in the required information, such as:
-	- Authorized Redirect URIs: This is where Google will redirect after authentication. Example: https://yourdomain.com/auth/callback.
-	- After creating the credentials, you’ll get the Client ID and Client Secret.
+	- Add 'Google Drive API' in non-sensitive scopes
+	- Add testing users email
 
 D) Get GOOGLE_API_KEY:
 - Go to APIs & Services > Credentials.
-- Click Create Credentials and select API Key.
-- The generated API key will appear, and you can copy it.
-
-E) Get GOOGLE_REDIRECT_URI:
-
-This is the URI where Google redirects users after they authenticate. You specify it when setting up OAuth credentials:
-Example: https://yourdomain.com/auth/callback.
-Ensure that the GOOGLE_REDIRECT_URI is added in the Authorized Redirect URIs section when creating your OAuth credentials in the Credentials section.
+- Click Create OAuth client ID.
+- Fill in the required details like the app name, user support email, etc.
+- Authorized redirect URIs http://127.0.0.1:8000/google-drive/callback
+- The generated Client ID and Client secret will be there.
 
 ## License
 

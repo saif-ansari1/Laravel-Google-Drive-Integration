@@ -381,6 +381,37 @@
             $('#downloadOptionsModal').modal('show');
         });
 
+        // $('#downloadImageBtn').on('click', function() {
+        //     const formData = $('#downloadOptionsForm').serialize(); // Get the format and size
+
+        //     // Send AJAX request to download image
+        //     $.ajax({
+        //         url: "{{ route('download.image') }}",  // Backend route for image download
+        //         method: 'POST',
+        //         data: formData,
+        //         success: function(response) {
+        //             // Trigger image download
+        //             const link = document.createElement('a');
+        //             link.href = response.file_url;
+        //             link.download = response.file_name;
+        //             document.body.appendChild(link);
+        //             link.click();
+        //             document.body.removeChild(link);
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error('Error downloading image:', error);
+        //         }
+        //     });
+
+        //     $('#downloadOptionsModal').modal('hide');
+        // });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         // Download button functionality
         $('#downloadImageBtn').on('click', function() {
             const formData = $('#downloadOptionsForm').serialize(); // Get the format and size
@@ -405,38 +436,7 @@
             });
 
             $('#downloadOptionsModal').modal('hide');
-        });
-       
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $('#downloadImageBtn').on('click', function() {
-            const formData = $('#downloadOptionsForm').serialize(); // Get the format and size
-
-            // Send AJAX request to download image
-            $.ajax({
-                url: "{{ route('download.image') }}",  // Backend route for image download
-                method: 'POST',
-                data: formData,
-                success: function(response) {
-                    // Trigger image download
-                    const link = document.createElement('a');
-                    link.href = response.file_url;
-                    link.download = response.file_name;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error downloading image:', error);
-                }
-            });
-
-            $('#downloadOptionsModal').modal('hide');
-        });
+        });        
 
      // Handle upload button click
     //  $('#uploadFilesBtn').on('click', function() {
